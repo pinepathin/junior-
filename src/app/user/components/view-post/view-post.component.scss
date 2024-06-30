@@ -1,0 +1,94 @@
+/*.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .userInfo {
+    display: flex;
+    gap: 20px;
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .name {
+        font-weight: 500;
+      }
+
+      .date {
+        font-size: 12px;
+      }
+    }
+  }
+}*/
+
+/*.post-card {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  //border: 1px solid #ccc;
+  //margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.post-body {
+  margin-bottom: 10px;
+}
+
+.tag-list {
+  margin-top: 10px;
+}*/
+
+//comment-section
+.comment-container {
+
+  button {
+    cursor: pointer;
+    color: rgba(131, 128, 128, 0.84);
+    border: none;
+    background-color: transparent;
+  }
+
+}
+
+@media screen and (max-width: 600px){
+  .comment-container {
+    padding: 10px;
+  }
+}
+
+// custom file
+.custom-file {
+  margin-top: 10px;
+}
+
+.custom-file-input {
+  display: none;
+}
+
+.custom-file-input-label {
+  cursor: pointer;
+  color: #838080;
+}
+
+
+
+// vote style code
+
+

@@ -1,0 +1,98 @@
+<!--<mat-spinner [color]="'primary'" [diameter]="60" [strokeWidth]="6" *ngIf="!isSubmitting"></mat-spinner>-->
+<div class="parent" *ngIf="!isSubmitting">
+  <div class="child">
+    <h2 class="post-caption">Create your Post</h2>
+
+    <form [formGroup]="validateForm">
+
+      <div class="form-input">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="title" formControlName="title">
+
+          <mat-error
+
+              *ngIf="validateForm.get('title')?.hasError('required')"
+          >
+            Title is required
+
+          </mat-error>
+          <mat-error
+              *ngIf="validateForm.get('title')?.hasError('minlength')"
+          >
+            Title should be more than or equal 8 characters
+
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-input">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="6" placeholder="Write your post" formControlName="body"></textarea>
+          <mat-error
+
+                  *ngIf="validateForm.get('body')?.hasError('required')"
+          >
+            Description is required
+
+          </mat-error>
+          <mat-error
+                  *ngIf="validateForm.get('body')?.hasError('minlength')"
+          >
+            Description should be more than or equal 8 characters
+
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-input">
+        <mat-form-field appearance="fill">
+          <mat-label>Add tags</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Add tags" formControlName="tags">
+            <mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)" [editable]="true"
+                          (edited)="edit(tag, $event)"
+                          [aria-description]="'press enter to edit ' + tag.name">
+              {{tag.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-chip-row>
+
+            <input matInput placeholder="Add new tag.." [matChipInputFor]="chipGrid"
+                   [matChipInputSeparatorKeyCodes]="separatorKeycodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-grid>
+          <mat-error
+
+                  *ngIf="validateForm.get('tags')?.hasError('required')"
+          >
+            Tags are required, at least one
+
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="flex flex-row gap-x-3">
+        <div *ngFor="let pimg of  previewImages" >
+          <img class="rounded-xl w-36 h-24" [src]="pimg" alt="Image Preview">
+        </div>
+      </div>
+      <div class="form-input custom-file">
+        <label for="file" class="custom-file-input-label">
+          Upload Files
+          <input id="file" type="file" accept="image/png, image/jpeg" multiple (change)="onFileSelected($event)"
+                 class="custom-file-input" />
+        </label>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" class="login-form-button"
+              (click)="addPost()">Publish your post
+      </button>
+
+    </form>
+
+  </div>
+</div>

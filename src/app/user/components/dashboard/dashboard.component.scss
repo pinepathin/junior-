@@ -1,0 +1,267 @@
+/*
+
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 100% ;
+
+}
+.left-container {
+  flex: 6;
+  margin-left: 30px;
+}
+
+.right-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  //max-width: 400px;
+  gap: 20px;
+
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px 20px;
+      padding: 30px;
+      gap: 10px;
+      border-radius: 5px;
+
+      -webkit-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+      -moz-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+      box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+
+
+
+      .title-menu {
+        color: #838080;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .follow-button {
+          display: flex;
+
+          .btn-f {
+            margin-right: 4px;
+            //border: #27c734 1px solid;
+            background-color: #c6ffbe;
+          }
+          .btn-unf {
+            //border: #db2bff 1px solid;
+            background-color: #efd3f8;
+          }
+        }
+      }
+
+      .user-ele {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+      }
+    }
+
+!*  button {
+    background-color: lightgreen;
+    margin: 5px;
+  }*!
+}
+
+
+
+
+!*.container {
+ !* min-height: 91vh;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  //max-width: 65%;
+  gap: 30px;*!
+
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
+}*!
+
+!*.child {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+
+
+  .child-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-info {
+      display: flex;
+      gap: 20px;
+
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .name {
+          font-weight: 500;
+        }
+
+        .date {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .post_title {
+    cursor: pointer;
+    //color
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .post_content {
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+
+    @media (max-width: 600px) {
+      font-size: 14px;
+    }
+
+    .tags_container {
+      margin: 20px;
+
+      .mat-chip-list {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &.liked {
+        color: red;
+      }
+
+      &.not-liked {
+        color: lightgreen;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+  }
+}*!
+
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+  margin-top: 40px;
+
+  //mat-icon {
+  //  font-size: 64px;
+  //  margin-bottom: 10px;
+  //}
+
+  p {
+    font-size: 18px;
+  }
+}
+*/
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 20px;
+  padding: 30px;
+  gap: 10px;
+  border-radius: 5px;
+
+  -webkit-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+  -moz-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+  box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+
+
+
+  .title-menu {
+    color: #838080;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .follow-button {
+      display: flex;
+
+      .btn-f {
+        margin-right: 4px;
+        //border: #27c734 1px solid;
+        background-color: #c6ffbe;
+      }
+      .btn-unf {
+        //border: #db2bff 1px solid;
+        background-color: #efd3f8;
+      }
+    }
+  }
+
+  .user-ele {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+  }
+  button {
+  background-color: lightgreen;
+  margin: 5px;
+  }
+
+}

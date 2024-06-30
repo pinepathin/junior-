@@ -1,0 +1,25 @@
+<div class="signup-container">
+  <div class="card-container">
+    <div class="right-card">
+      <h2>Signup</h2>
+      <form [formGroup]="signupForm">
+        <input matInput placeholder="Name" name="name" required formControlName="name">
+        <input matInput placeholder="example@gmail.com" name="email" required formControlName="email">
+        <input matInput placeholder="Password" name="password" type="password" required formControlName="password">
+        <input matInput placeholder="confirm password" name="confirmPassword" type="password" required
+               formControlName="confirmPassword">
+        <button mat-raised-button color="primary" class="signup-button" (click)="signup()"
+                [disabled]="signupForm.invalid">Sign up
+        </button>
+      </form>
+    </div>
+    <div class="left-card">
+      <h1>Junior Oasis.</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+      </p>
+      <span>Do you have an account?</span> <br>
+      <button>Login</button>
+    </div>
+  </div>
+</div>

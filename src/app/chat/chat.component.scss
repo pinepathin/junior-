@@ -1,0 +1,95 @@
+.sendform{
+position: absolute;
+bottom: 0;
+display: flex;
+width: 100%;
+justify-content: space-between;
+}
+.chat{
+    margin-inline: auto;
+    display: flex;
+
+}
+.me{
+    flex-direction: row-reverse;
+    background-color: green;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    align-self: flex-end;
+    max-width: 100%;
+    margin-bottom: 10px;
+    
+}
+.them{
+    background-color: lightblue;
+    width: fit-content;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 20px;
+    padding: 30px;
+    padding-right: 0px;
+    gap: 10px;
+    border-radius: 5px;
+      
+    -webkit-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+    -moz-box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+    box-shadow: inset 0px 8px 49px -1px rgba(86, 181, 79, 0.45);
+  
+  .name-ele{
+    width: 60%;
+    text-wrap: wrap;
+    word-wrap: break-word;
+
+  }
+  
+    .title-menu {
+      color: #838080;
+    }
+  
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+  
+      .follow-button {
+        .btn-f {
+          //border: #27c734 1px solid;
+          background-color: #c6ffbe;
+        }
+        .btn-unf {
+          //border: #db2bff 1px solid;
+          background-color: #efd3f8;
+        }
+      }
+    }
+  
+    .user-ele {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+  
+    }
+    button {
+    background-color: lightgreen;
+    margin: 5px;
+    }
+  
+  }
+  

@@ -1,0 +1,126 @@
+<div class="container grid grid-cols-12 gap-10" style="min-height: 91vh">
+  <div class="col-span-12 " *ngIf="posts">
+
+      <div class="common-section lg:w-3/5 " *ngIf="posts.length === 0;else postList;" >
+        <mat-card class="empty-message">
+          <mat-card-content >
+            <div class="flex flex-col justify-center items-center text-center">
+              <mat-icon>sentiment_dissatisfied</mat-icon>
+              <p>No Posts found</p>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <ng-template #postList >
+        <app-post-card customContainer="common-section lg:w-3/5" *ngFor="let post of posts" [post]="post"  (deletePost)="deletePost($event)" [deletable]="true" [updatable]="true"  />
+      </ng-template>
+      <div class="pagination">
+        <mat-paginator [length]="total" [pageIndex]="pageNum" [pageSize]="5"
+                       (page)="pageIndexChange($event)"></mat-paginator>
+      </div>
+  </div>
+
+<!--
+    <mat-card class="right-container">
+        <div class="flex flex-col space-y-5 col-span-4">
+            <div class="menu">
+                <span class="title-menu">Suggestion for you  <hr></span>
+                <div class="buttons">
+                    <div class="user-ele">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                        <span class="name-ele">Damla Mimi</span>
+                    </div>
+                    <div class="follow-button">
+                        <button mat-flat-button class="btn-f">Follow</button>
+                        <button mat-flat-button  class="btn-unf">Unfollow</button>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <div class="user-ele">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                        <span class="name-ele">Matthieu Mimi</span>
+                    </div>
+                    <div class="follow-button">
+                        <button mat-flat-button class="btn-f">Follow</button>
+                        <button mat-flat-button  class="btn-unf">Unfollow</button>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <div class="user-ele">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                        <span class="name-ele">Alex Mimi</span>
+                    </div>
+                    <div class="follow-button">
+                        <button mat-flat-button class="btn-f">Follow</button>
+                        <button mat-flat-button  class="btn-unf">Unfollow</button>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="user-ele">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                        <span class="name-ele">Louise Mimi</span>
+                    </div>
+                    <div class="follow-button">
+                        <button mat-flat-button class="btn-f">Follow</button>
+                        <button mat-flat-button  class="btn-unf">Unfollow</button>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="user-ele">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                        <span class="name-ele">Damla Mimi</span>
+                    </div>
+                    <div class="follow-button">
+                        <button mat-flat-button class="btn-f">Follow</button>
+                        <button mat-flat-button  class="btn-unf">Unfollow</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="menu">
+                <span class="title-menu">Online friends <hr></span>
+                <div class="user-ele">
+                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                    <span class="name-ele">Sarah Damra</span>
+                </div>
+                <div class="user-ele">
+                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                    <span class="name-ele">Thomas Madineh</span>
+                </div>
+                <div class="user-ele">
+                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                    <span class="name-ele">Laura Midiea</span>
+                </div>
+                <div class="user-ele">
+                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
+                    <span class="name-ele">Milena Mimi</span>
+                </div>
+            </div>
+
+        </div>
+    </mat-card>
+-->
+
+
+  <!--  <div class="right-container">
+      <div class="sidebar">
+        <div class="sidebar-Info">
+          <span> Friends online</span>
+          <div class="user">
+            <div class="user-info">
+              <img
+                src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""/>
+              <span class="user-name"> Test user</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+</div>

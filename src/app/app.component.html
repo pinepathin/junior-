@@ -1,0 +1,23 @@
+<div *ngIf="!isUserLoggedIn">
+  <mat-toolbar class="navbar">
+    <span class="navbar-logo">Junior-Oasis</span>
+    <span class="spacing"></span>
+      <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
+      <button mat-button  routerLink="/signup" routerLinkActive="active">Sign Up</button>
+  </mat-toolbar>
+</div>
+
+ <!--TODO--->
+<div *ngIf="isUserLoggedIn">
+  <mat-toolbar class="navbar">
+    <span class="navbar-logo">Junior-Oasis</span>
+    <span class="spacing"></span>
+    <button mat-button routerLink="/chat/-1" routerLinkActive="active">Chat</button>
+    
+    <button mat-button routerLink="/user/post" routerLinkActive="active">Create a post</button>
+    <button mat-button routerLink="user/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
+  </mat-toolbar>
+</div>
+
+<router-outlet></router-outlet>

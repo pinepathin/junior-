@@ -1,0 +1,21 @@
+<div class="login-container">
+  <div class="card-container">
+    <div class="left-card">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm">
+        <input placeholder="Enter your email" name="email" type="email" formControlName="email" required>
+        <input placeholder="Enter your password" name="password" type="password"
+               formControlName="password" required>
+        <button mat-raised-button color="primary" class="login-button" (click)="login()"
+                [disabled]="loginForm.invalid">Login
+        </button>
+      </form>
+    </div>
+    <div class="right-container">
+      <h1>Junior Oasis.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero</p>
+      <span>You don't have an account?</span>
+      <button>Register</button>
+    </div>
+  </div>
+</div>
