@@ -9,7 +9,7 @@ import * as SockJS from 'sockjs-client';
 })
 export class WebsocketService {
 
-  private stompClient: stomp.Client;
+  public stompClient: stomp.Client;
 
   constructor() {
     this.stompClient =  stomp.Stomp.over(new SockJS('http://localhost:8081/ws', {CredentialsContainer:null,Credential:null}, {  // Set this to false to avoid sending credentials
@@ -46,6 +46,9 @@ export class WebsocketService {
   }
 //DESTINATION =CHATID
   sendMessage(destination: string, message: any) {
-    this.stompClient.publish({ destination: `/app/chat.sendMessage/${destination}`, body: JSON.stringify(message) });
+      this.stompClient.publish({ destination: `/app/chat.sendMessage/${destination}`, body: JSON.stringify(message) });
+    
+  
+  
   }
 }

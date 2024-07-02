@@ -50,7 +50,7 @@
   <div style="display: flex;" *ngFor="let user of alluser" >
 
     <div *ngIf="user.name.includes(usertofind)" class="buttons">
-      <div    [routerLink]="['/chat', user.id]" class="user-ele">
+      <div (click)="refresh(user.id.toString())"    class="user-ele">
           <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
           <span class="name-ele">{{user.name}}</span>
       </div>

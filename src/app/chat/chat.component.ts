@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import {fromFetch} from 'rxjs/fetch';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 
+import * as stomp from '@stomp/stompjs';
+import * as SockJS from 'sockjs-client';
 import { FormGroup } from '@angular/forms';
 import { WebsocketService } from '../web-socket.service';
 @Component({
@@ -12,7 +14,11 @@ import { WebsocketService } from '../web-socket.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+refresh(chatid:string){
 
+  window.location.reload();
+  window.location.href="chat/"+chatid;
+}
   @ViewChild('messageContainer')
   private messageContainer!: ElementRef;
 
@@ -29,12 +35,20 @@ recname:String="";
     private activatedRoute: ActivatedRoute,private websocketService: WebsocketService){}
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
-      this.websocketService=new WebsocketService();
+
+    this.websocketService.stompClient =  stomp.Stomp.over(new SockJS('http://localhost:8081/ws', {CredentialsContainer:null,Credential:null}, {  // Set this to false to avoid sending credentials
+    // Optionally, you can add headers here if needed
+}));
+
       this.loadchats(params)
     })
   }
   sendMessage() {
+  
     this.websocketService.sendMessage(this.chatid.toString(),{content:this.messageToSend,sender:JSON.parse(localStorage.getItem("c_user")||"").id,sender2:JSON.parse(localStorage.getItem("c_user")||"").id})
+  
+    
+    
     this.messageToSend=""
   }
   private scrollToBottom(): void {
