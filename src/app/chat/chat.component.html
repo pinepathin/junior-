@@ -64,11 +64,13 @@
         [class.me]="me == message.sender"
         [class.them]="me != message.sender"
       >
-        <img
+        <img *ngIf="me == message.sender"
           style="object-fit: contain; border-radius: 10px; height: 20px"
           src="https://material.angular.io/assets/img/examples/shiba1.jpg"
           alt=""
         />
+        <img  *ngIf="me != message.sender"
+          style="object-fit: contain; border-radius: 10px; height: 20px" src="../../assets/Bear-Avatar.png" alt="">
 
         <p style="word-wrap: break-word; max-width: 100%; padding-inline: 10px">
           {{ message.content }}

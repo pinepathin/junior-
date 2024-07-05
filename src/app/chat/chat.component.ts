@@ -1,13 +1,15 @@
-import { Component,ElementRef,OnInit, ViewChild } from '@angular/core';
-import {map, Observable, tap} from "rxjs";
-import { ActivatedRoute } from '@angular/router';
-import {fromFetch} from 'rxjs/fetch';
-import {HttpClient, HttpResponse} from "@angular/common/http";
-
-import * as stomp from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
+import * as stomp from '@stomp/stompjs';
+
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {Observable, map, tap} from "rxjs";
+
+import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { WebsocketService } from '../web-socket.service';
+import {fromFetch} from 'rxjs/fetch';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -42,6 +44,11 @@ recname:String="";
 
       this.loadchats(params)
     })
+    this.receivedMessages = [
+      { content: 'test', sender: 0 },
+      { content: 'test', sender: 1 },
+    ];
+    
   }
   sendMessage() {
   
