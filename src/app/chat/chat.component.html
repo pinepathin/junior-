@@ -1,67 +1,106 @@
+<div class="chat">
+  <div style="height: 100vh; flex: 0.4">
+    <div class="menu">
+      <span class="title-menu"
+        >Recent Chats
+        <hr
+      /></span>
 
-      <div class="chat">
-        <div style="height: 100vh; flex: 0.4;">
-          <div class="menu">
-            <span class="title-menu">Recent Chats <hr></span>
-           
-          <div style="display: flex;" *ngFor="let chat of chats" >
-
-            <div   class="buttons">
-              <div   [routerLink]="['/chat', chat.id]" class="user-ele">
-                  <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
-                  <span class="name-ele">{{chat.name}}</span>
-              </div>
-              
+      <div style="display: flex" *ngFor="let chat of chats">
+        <div class="buttons">
+          <div [routerLink]="['/chat', chat.id]" class="user-ele">
+            <img
+              src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+              alt=""
+            />
+            <span class="name-ele">{{ chat.name }}</span>
           </div>
-
-          </div>
-          </div>
-
-
         </div>
-        <div style="position: relative; height: 90vh;  border-width: 3px;  max-width: 45vw; flex:1;">
-          <div   style="position: absolute; width: 100%; height: 50px; top: 0; background-color: white; display: flex; border-width: 3px;">
-
-            <img   height="100%"  style="object-fit: contain; border-radius: 10px;" src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
-         <p style="padding-left: 10px;font-weight: bolder;"> {{recname}}</p>
-          </div>
-          <div #messageContainer style="display: flex;flex-direction: column; margin-top: 50px; height: 90%;padding-bottom: 50px; overflow-y: scroll;">
-        <div *ngFor="let message of receivedMessages"    
-        style="display: flex;"
-        [class.me]="me==message.sender" [class.them]="me!=message.sender" >
-        <img   style="object-fit: contain; border-radius: 10px; height: 20px;" src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
-       
-   
-   
-        <p style="word-wrap: break-word; max-width: 100%; padding-inline: 10px;">{{ message.content }}</p>
- 
-</div>
-  </div>
-  <div class="sendform">
-  <input  style="flex: 1; border-width: 3px;"  [(ngModel)]="messageToSend">
-  <button mat-raised-button color="primary" class="login-button"  (click)="sendMessage()"
-      >SEND
-  </button>
-</div>
-</div>
-<div style="height: 100vh; flex: 0.4;">
-  <div class="menu">
-    <input style="border-width: 1px;"    [(ngModel)]="usertofind"    />
-  <div style="display: flex;" *ngFor="let user of alluser" >
-
-    <div *ngIf="user.name.includes(usertofind)" class="buttons">
-      <div (click)="refresh(user.id.toString())"    class="user-ele">
-          <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
-          <span class="name-ele">{{user.name}}</span>
       </div>
-     
+    </div>
   </div>
+  <div
+    style="
+      position: relative;
+      height: 90vh;
+      border-width: 3px;
+      max-width: 45vw;
+      flex: 1;
+    "
+  >
+    <div
+      style="
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        background-color: white;
+        display: flex;
+        border-width: 3px;
+      "
+    >
+      <img
+        height="100%"
+        style="object-fit: contain; border-radius: 10px"
+        src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+        alt=""
+      />
+      <p style="padding-left: 10px; font-weight: bolder">{{ recname }}</p>
+    </div>
+    <div
+      #messageContainer
+      style="
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        height: 90%;
+        padding-bottom: 50px;
+        overflow-y: scroll;
+      "
+    >
+      <div
+        *ngFor="let message of receivedMessages"
+        style="display: flex"
+        [class.me]="me == message.sender"
+        [class.them]="me != message.sender"
+      >
+        <img
+          style="object-fit: contain; border-radius: 10px; height: 20px"
+          src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+          alt=""
+        />
 
+        <p style="word-wrap: break-word; max-width: 100%; padding-inline: 10px">
+          {{ message.content }}
+        </p>
+      </div>
+    </div>
+    <div class="sendform">
+      <input style="flex: 1; border-width: 3px" [(ngModel)]="messageToSend" />
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-button"
+        (click)="sendMessage()"
+      >
+        SEND
+      </button>
+    </div>
   </div>
+  <div style="height: 100vh; flex: 0.4">
+    <div class="menu">
+      <input style="border-width: 1px" [(ngModel)]="usertofind" />
+      <div style="display: flex" *ngFor="let user of alluser">
+        <div *ngIf="user.name.includes(usertofind)" class="buttons">
+          <div (click)="refresh(user.id.toString())" class="user-ele">
+            <img
+              src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+              alt=""
+            />
+            <span class="name-ele">{{ user.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-</div>
-
-
 </div>
