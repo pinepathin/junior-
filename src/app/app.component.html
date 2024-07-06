@@ -9,14 +9,14 @@
 
  <!--TODO--->
 <div >
-  <mat-toolbar class="navbar">
-    <span class="navbar-logo">Junior-Oasis</span>
+  
+  <mat-toolbar class="navbar flex flex-wrap">
+    <span class="navbar-logo hidden md:flex">Junior-Oasis</span>
     <span class="spacing"></span>
-    <button mat-button routerLink="/chat/-1" routerLinkActive="active">Chat</button>
-    
-    <button mat-button routerLink="/user/post" routerLinkActive="active">Create a post</button>
-    <button mat-button routerLink="user/dashboard" routerLinkActive="active">Dashboard</button>
-    <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
+    <button mat-button class="text-xs" routerLink="/chat/-1" routerLinkActive="active">Chat</button>
+    <button mat-button class="text-xs" routerLink="/user/post" routerLinkActive="active">Create a post</button>
+    <button mat-button class="text-xs" routerLink="user/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button class="text-xs" (click)="logout()" routerLinkActive="active">Logout</button>
   </mat-toolbar>
 </div>
 

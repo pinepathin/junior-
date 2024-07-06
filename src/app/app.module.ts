@@ -1,24 +1,23 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { ChatComponent } from './chat/chat.component';
+import {HttpClientModule} from "@angular/common/http";
+import { LightgalleryModule } from 'lightgallery/angular';
 import { LoginComponent } from './components/auth/login/login.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
-import {MatInputModule} from "@angular/material/input";
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { LightgalleryModule } from 'lightgallery/angular';
+import {MatInputModule} from "@angular/material/input";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { NgModule } from '@angular/core';
+import { SignupComponent } from './components/auth/signup/signup.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { ChatComponent } from './chat/chat.component';
 import { WebsocketService } from './web-socket.service';
-
 
 @NgModule({
   declarations: [

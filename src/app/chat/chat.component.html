@@ -1,5 +1,5 @@
 <div class="chat">
-  <div style="height: 100vh; flex: 0.4">
+  <div class="w-full md:w-1/4 mt-2">
     <div class="menu">
       <span class="title-menu"
         >Recent Chats
@@ -19,12 +19,10 @@
       </div>
     </div>
   </div>
-  <div
+  <div class="w-full md:w-1/2 mt-2"
     style="
       position: relative;
-      height: 90vh;
       border-width: 3px;
-      max-width: 45vw;
       flex: 1;
     "
   >
@@ -89,7 +87,7 @@
       </button>
     </div>
   </div>
-  <div style="height: 100vh; flex: 0.4">
+  <div class="w-full md:w-1/4 mt-2">
     <div class="menu">
       <input style="border-width: 1px" [(ngModel)]="usertofind" />
       <div style="display: flex" *ngFor="let user of alluser">

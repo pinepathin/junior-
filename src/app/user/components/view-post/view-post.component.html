@@ -1,70 +1,151 @@
-<div class="container flex flex-col space-y-5 justify-center justify-items-center mx-auto">
-    <app-post-card customContainer="common-section lg:w-3/5"  *ngIf="post" [post]="post"/>
+<div class="flex w-full mt-4">
+  <div class="w-1/5 hidden md:flex flex-col items-baseline ml-8">
+    <div class="flex justify-center my-3">
+      <mat-icon class="blue-text mx-1">note</mat-icon>
+      <span class="text-gray-400">Latest News</span>
+    </div>
+    <div class="flex justify-center my-3">
+      <mat-icon class="blue-text mx-1">people</mat-icon>
+      <span class="text-gray-400">Friends</span>
+    </div>
+    <div class="flex justify-center my-3">
+      <mat-icon class="blue-text mx-1">groups</mat-icon>
+      <span class="text-gray-400">Groups</span>
+    </div>
+    <div class="flex justify-center my-3">
+      <mat-icon class="blue-text mx-1">local_grocery_store</mat-icon>
+      <span class="text-gray-400">Market Place</span>
+    </div>
+    <div class="flex justify-center my-3">
+      <mat-icon class="blue-text mx-1">ondemand_video</mat-icon>
+      <span class="text-gray-400">Watch</span>
+    </div>
+  </div>
+  <div
+    class="container flex flex-col space-y-5 justify-start justify-items-center mx-auto"
+  >
+    <app-post-card
+      customContainer="common-section lg:w-3/5"
+      *ngIf="post"
+      [post]="post"
+    />
     <!--Comments-->
     <div class="common-section lg:w-3/5">
-        <form [formGroup]="validateForm" (ngSubmit)="addComment()" class="flex space-x-2 mb-2 comment-container">
-            <div class="form-field w-full ">
-                <textarea class="rounded-xl  w-full" matInput rows="1" placeholder="Write your comment..."
-                          formControlName="body"></textarea>
-            </div>
-
-            <div class="form-field custom-file">
-                <label for="file" class="custom-file-input-label">
-                    <mat-icon>add_circle_outline</mat-icon>
-                    <input id="file" type="file" accept="image/png, image/jpeg" (change)="onFileSelected($event)"
-                           class="custom-file-input">
-                </label>
-            </div>
-            <button>
-                <mat-icon>send</mat-icon>
-            </button>
-        </form>
-
-        <div class="flex flex-row h-[78px] py-2 space-x-2" *ngIf="image && imgPreview">
-            <img [src]="imgPreview" class="h-full w-auto  rounded-xl" alt="Image Preview"/>
+      <form
+        [formGroup]="validateForm"
+        (ngSubmit)="addComment()"
+        class="flex space-x-2 mb-2 comment-container"
+      >
+        <div class="form-field w-full">
+          <textarea
+            class="rounded-xl w-full"
+            matInput
+            rows="1"
+            placeholder="Write your comment..."
+            formControlName="body"
+          ></textarea>
         </div>
+
+        <div class="form-field custom-file">
+          <label for="file" class="custom-file-input-label">
+            <mat-icon>add_circle_outline</mat-icon>
+            <input
+              id="file"
+              type="file"
+              accept="image/png, image/jpeg"
+              (change)="onFileSelected($event)"
+              class="custom-file-input"
+            />
+          </label>
+        </div>
+        <button>
+          <mat-icon>send</mat-icon>
+        </button>
+      </form>
+
+      <div
+        class="flex flex-row h-[78px] py-2 space-x-2"
+        *ngIf="image && imgPreview"
+      >
+        <img
+          [src]="imgPreview"
+          class="h-full w-auto rounded-xl"
+          alt="Image Preview"
+        />
+      </div>
     </div>
 
-
-            <div  class="w-11/12 md:w-4/5 lg:w-3/5 border shadow rounded-xl mx-auto px-5 py-4 mt-4  relative "  >
-                <h1>Comments</h1>
-                <div (scrollend)="fetchNextComments()" class="flex flex-col h-96 overflow-y-auto">
-                    <div *ngFor="let comment of post?.comments?.content; let i = index;">
-                        <div class="flex flex-col space-y-2  border-b py-4">
-                            <div class="flex flex-row justify-between">
-                            <div class="flex items-center gap-4">
-                                <img class="w-10 h-10 rounded-full"
-                                     src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                                     alt="">
-                                <div class="font-medium dark:text-white">
-                                    <div>{{ comment?.owner?.userName}}</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">{{ comment?.createdAt | date:'dd-MM-YYYY'}}</div>
-                                </div>
-
-                            </div>
-                                <div  (click)="toggleVote( i ,  comment.id)"  [class]="'flex space-x-1 px-4  cursor-pointer ' + (isCurrentUserHasVote(comment?.votes ?? []) ? 'text-blue-700' : '')" >
-                                    <mat-icon>how_to_vote</mat-icon>
-                                    <span> {{ comment.votes ? comment.votes.length : 0  }} </span>
-                                </div>
-                            </div>
-                            <div class="text-gray-900 dark:text-gray-100 px-2">
-                                {{ comment?.body}}
-                            </div>
-                            <div *ngIf="comment.image" class="px-2">
-                                <img [src]="baseBackUrl + comment.image.uri"  class="w-1/2 "/>
-                            </div>
-                        </div>
-                    </div>
+    <div
+      class="w-11/12 md:w-4/5 lg:w-3/5 border shadow rounded-xl mx-auto px-5 py-4 mt-4 relative"
+    >
+      <h1>Comments</h1>
+      <div
+        (scrollend)="fetchNextComments()"
+        class="flex flex-col h-96 overflow-y-auto"
+      >
+        <div *ngFor="let comment of post?.comments?.content; let i = index">
+          <div class="flex flex-col space-y-2 border-b py-4">
+            <div class="flex flex-row justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-10 h-10 rounded-full"
+                  src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt=""
+                />
+                <div class="font-medium dark:text-white">
+                  <div>{{ comment?.owner?.userName }}</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">
+                    {{ comment?.createdAt | date : "dd-MM-YYYY" }}
+                  </div>
                 </div>
-
-
-                <div *ngIf="isCommentsLoading" class="absolute bottom-0 bg-white w-full py-5 flex flex-row justify-center items-center">
-                    <mat-spinner diameter="35" />
-                </div>
+              </div>
+              <div
+                (click)="toggleVote(i, comment.id)"
+                [class]="
+                  'flex space-x-1 px-4  cursor-pointer ' +
+                  (isCurrentUserHasVote(comment?.votes ?? [])
+                    ? 'text-blue-700'
+                    : '')
+                "
+              >
+                <mat-icon>how_to_vote</mat-icon>
+                <span> {{ comment.votes ? comment.votes.length : 0 }} </span>
+              </div>
             </div>
+            <div class="text-gray-900 dark:text-gray-100 px-2">
+              {{ comment?.body }}
+            </div>
+            <div *ngIf="comment.image" class="px-2">
+              <img [src]="baseBackUrl + comment.image.uri" class="w-1/2" />
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div
+        *ngIf="isCommentsLoading"
+        class="absolute bottom-0 bg-white w-full py-5 flex flex-row justify-center items-center"
+      >
+        <mat-spinner diameter="35" />
+      </div>
+    </div>
+  </div>
+  <div class="w-1/5 hidden md:flex">
+    <div style="height: 100vh; flex: 0.4">
+      <div class="menu">
+        <input style="border-width: 1px" [(ngModel)]="usertofind" />
+        <div style="display: flex" *ngFor="let user of alluser">
+          <div *ngIf="user.name.includes(usertofind)" class="buttons">
+            <div class="user-ele">
+              <img
+                src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+                alt=""
+              />
+              <span class="name-ele">{{ user.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-

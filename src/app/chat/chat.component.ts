@@ -44,10 +44,7 @@ recname:String="";
 
       this.loadchats(params)
     })
-    this.receivedMessages = [
-      { content: 'test', sender: 0 },
-      { content: 'test', sender: 1 },
-    ];
+  
     
   }
   sendMessage() {

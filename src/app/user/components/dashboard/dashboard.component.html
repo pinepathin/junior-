@@ -1,6 +1,6 @@
 <div class="container grid grid-cols-12 gap-10" style="min-height: 91vh">
   <div class="col-span-12 flex w-full" *ngIf="posts">
-    <div class="w-1/5 flex flex-col items-baseline ml-8">
+    <div class="w-1/5 hidden md:flex flex-col items-baseline ml-8">
       <div class="flex justify-center my-3">
         <mat-icon class="blue-text mx-1">note</mat-icon>
         <span class="text-gray-400">Latest News</span>
@@ -37,10 +37,11 @@
       </mat-card>
     </div>
 
-    <ng-template       class="common-section lg:w-3/5"
+    <ng-template       class="common-section "
  #postList>
+ <div class=" md:w-3/5">
       <app-post-card
-        customContainer="common-section lg:w-3/5"
+        customContainer="common-section "
         *ngFor="let post of posts"
         [post]="post"
         (deletePost)="deletePost($event)"
@@ -55,9 +56,10 @@
         (page)="pageIndexChange($event)"
       ></mat-paginator>
     </div>
+    </div>
     </ng-template>
    
-    <div class="w-1/5">
+    <div class="w-1/5 hidden md:flex">
       <div style="height: 100vh; flex: 0.4">
         <div class="menu">
           <input style="border-width: 1px" [(ngModel)]="usertofind" />

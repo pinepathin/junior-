@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageService} from "./services/auth-service/storage.service";
 import {NavigationEnd, Router} from "@angular/router";
+
+import {StorageService} from "./services/auth-service/storage.service";
 import {initFlowbite} from "flowbite";
 
 @Component({
@@ -23,6 +24,9 @@ export class AppComponent implements OnInit{
         this.updateUserLoggedInStatus();
       }
     })
+    if(!this.isUserLoggedIn) {
+    this.router.navigateByUrl('/login');
+  }  
   }
 
   //TODO

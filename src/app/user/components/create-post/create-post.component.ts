@@ -1,10 +1,12 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {PostService} from "../../user-services/post-service/post.service";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {MatChipEditedEvent, MatChipInputEvent} from "@angular/material/chips";
+import {Component, OnInit, inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MatChipEditedEvent, MatChipInputEvent} from "@angular/material/chips";
+
+import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {PostService} from "../../user-services/post-service/post.service";
 import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -14,7 +16,7 @@ export class CreatePostComponent implements OnInit{
 
   tags: any[] = []; // it could be of Tags[] type instead of any
   images: File[] = [];
-  previewImages!:any[];
+  previewImages:any[]=[];
   isSubmitting! : boolean;
   addOnBlur = true;
   validateForm!: FormGroup;
@@ -66,7 +68,7 @@ export class CreatePostComponent implements OnInit{
   }
 
   updatePreviewImages() {
-    this.previewImages = [];
+    // this.previewImages = [];
 
     Array.from(this.images).forEach((file) => {
       const reader = new FileReader();
@@ -87,8 +89,9 @@ export class CreatePostComponent implements OnInit{
 
   addPost() {
     console.log(this.validateForm.value);
-    if (this.validateForm.valid)
-    this.service.createPost( this.validateForm.value , this.images ).subscribe(res =>{
+    if(this.validateForm.valid)
+      console.log(this.previewImages, this.images)
+    this.service.createPost( this.validateForm.value , this.previewImages ).subscribe(res =>{
       // if  (res.status >= 200 &&  res.status < 300){
         this.router.navigateByUrl("user/dashboard")
       // }
